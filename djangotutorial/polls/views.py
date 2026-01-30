@@ -3,4 +3,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello world. you are at the pools index.\n The things is very simple but for begineer it's so hard")
+    return HttpResponse("Hello world. you are at the pools index.")
+
