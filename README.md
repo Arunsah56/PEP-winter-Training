@@ -26,3 +26,6 @@ git init
 7. .gitignore template -> Python8.  add a license -> N
 9.  This will create "PEP_WINTER_TRAINING" as a public repository on github Continue -> y
 10. Clone the new repository locally -> Y
+
+django-admin startproject mysite folder_name
+python manage.py 

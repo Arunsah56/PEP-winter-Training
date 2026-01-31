@@ -1,24 +1,17 @@
-{% load static %}
+{% extends "layouts.html"%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This is our home page</title>
-
-    
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Index Title</title>
 </head>
 <body>
-    <h3>Arun's Portfolio </h3>
-     <div class="container">
-        <h1>I'm Arun sah</h1>
-        <p>Here you get your complete solution about the tech</p>
-
-        <div class="buttons">
-            <a href="projects" class="btn">View Projects</a>
-            <a href="contact" class="btn">Contact</a>
-        </div>
-    </div>
+    {% block h1 %}
+        <h1>Welcome to Our Index Page</h1>
+    {% endblock h1 %}
 </body>
 </html>
+ {% block content %}
+        This is our index page to be rendered.
+{% endblock content %} 
