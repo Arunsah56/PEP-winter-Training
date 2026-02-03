@@ -11,28 +11,25 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l==7o%1bz+umajk88-*my42va$2v99q4=f%nu&(#2*q!&mv-d!'
+SECRET_KEY = 'django-insecure-%gr^eqjputhdylywabdpe6y22xhg&0!w*b&e__tr9a(4c@zs+k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-TAILWIND_CLI_PATH = r"C:\\Users\\sahar\\Desktop\\PEP-winter-Training\\djangotutorial\\Django_Project\\tailwindcss.exe"
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
+TAILWIND_APP_NAME = 'theme'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,19 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio',
     'tailwind',
     'theme',
-    
+    'django_browser_reload',
 ]
-if DEBUG:
-    INSTALLED_APPS += ["django_browser_reload"]
 
-
-
-NPM_BIN_PATH = "C:\\Program Files\\nodejs\\node_modules\\npm\\bin"
-
-TAILWIND_APP_NAME = "theme"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,20 +51,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'django_browser_reload.middlewar.BrowserReloadMiddleware',
 ]
-
-if DEBUG:
-    # Add django_browser_reload middleware only in DEBUG mode
-    MIDDLEWARE += [
-        "django_browser_reload.middleware.BrowserReloadMiddleware",
-    ]
 
 ROOT_URLCONF = 'myapp.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

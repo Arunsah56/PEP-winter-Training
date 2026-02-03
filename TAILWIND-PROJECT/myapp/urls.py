@@ -15,23 +15,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from django.contrib import admin
-from . import views
+
+#from theme.views import custom_404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contact/', views.contact, name='contact'),
-    path('about/', views.about, name='about'),
-    path("", views.index, name='index'),
-    path('services/',views.services, name='services'),
-    path("portfolio/", include("portfolio.urls")),
-    
+    #path('', include('theme.urls'))
 ]
+
 if settings.DEBUG:
     # Include django_browser_reload URLs only in DEBUG mode
     urlpatterns += [
-        path("__reload__/", include("django_browser_reload.urls")),
+        path("_reload_/", include("django_browser_reload.urls")),
     ]
 
+#handler404 = custom_404
