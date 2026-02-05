@@ -1,0 +1,23 @@
+body{
+
+    background-color: rgb(219, 219, 177);
+}
+h1{
+    text-align: center;
+    color: rgb(19, 18, 18);
+    align-content: center;
+}
+head{
+    background: #000;
+    background-color: black;
+}
+p{
+    text-align: center;
+    font-weight: bold;
+}
+.content{
+    background-color: beige;
+    width: 70%;
+    height: auto;
+    right: 50;
+}

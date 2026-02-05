@@ -8,3 +8,11 @@ class users (models.Model):
     def __str__(self):
         return (f"{self.first_name} {self.last_name} {self.email}")
     
+class FormModel(models.Model):
+    title = models.CharField(max_length=200)
+    discription = models.TextField()
+    last_modified = models.DateTimeField(auto_now_add=True)
+    #img = models.ImageField(upload_to="images/")
+
+    def __str__(self):
+        return self.title
