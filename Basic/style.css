@@ -1,23 +1,35 @@
-body{
+*{
+    margin: 0%;
+    padding: 0%;
+}
 
-    background-color: rgb(219, 219, 177);
+/* #box1{
+    background-color: aqua;
+    height: 300px;
+    width: 250px;
+    align-items: center;
+    
+    justify-content: center;
+    border: dashed; */
+    
 }
-h1{
-    text-align: center;
-    color: rgb(19, 18, 18);
-    align-content: center;
+#box2{
+    background-color: blueviolet;
+    
 }
-head{
-    background: #000;
-    background-color: black;
+body{
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
-p{
-    text-align: center;
-    font-weight: bold;
+div{
+    height: 300px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgb(rgb(78, 75, 75), rgb(89, 110, 89), rgb(19, 19, 28));
+    
+    background-color: hotpink;
+    margin: 4px;
 }
-.content{
-    background-color: beige;
-    width: 70%;
-    height: auto;
-    right: 50;
-}
+
