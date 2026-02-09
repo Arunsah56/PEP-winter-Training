@@ -113,5 +113,7 @@ def singup_view(request):
             messages.success(request, "SingUp successful. you can now Log in.")
             return redirect("login_view")
         
-    return (request, "singup.html")
+    return render(request, "singup.html")
 
+def arun(request):
+    return render(request, "arun_index.html")

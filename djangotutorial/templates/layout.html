@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +9,11 @@
         <h1>This is from the Polls and layout</h1>
     {% endblock %}
 </head>
-<body>
-    {% block content %}
-    <p >Learning Django is Beneficial</p>
-    {% endblock %}
+<body class="bg-dark">
+    <div class="container">
+        {% block content %}
+        <p >Learning Django is Beneficial</p>
+        {% endblock %}
+    </div>
 </body>
 </html>
