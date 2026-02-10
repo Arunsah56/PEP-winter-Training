@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polls Website</title>
+    <title>Layout</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     {% block title %}
         <h1>This is from the Polls and layout</h1>
     {% endblock %}
@@ -12,7 +13,7 @@
 <body class="bg-dark">
     <div class="container">
         {% block content %}
-        <p >Learning Django is Beneficial</p>
+        {% comment %} <p >Learning Django is Beneficial</p> {% endcomment %}
         {% endblock %}
     </div>
 </body>

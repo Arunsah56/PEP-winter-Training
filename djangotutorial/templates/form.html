@@ -1,8 +1,14 @@
-<form action="" method="GET">
-    <label for="title">Title</label>
-    <input id="title" type="text" name="title">
-    <label for="description">description</label>
-    <input id="description" type="text" name="description">
-    <input type="submit" value="OK">
+{% load static%}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<body>
+    <div class="page-center">
+    <form action="" method="GET">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title"> <br>
+        <label for="description">description</label>
+        <input id="description" type="text" name="description"> <br>
+        <input type="submit" value="OK">
     
-</form>
+    </form>
+    </div>
+</body>

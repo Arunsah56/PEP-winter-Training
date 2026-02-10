@@ -117,3 +117,6 @@ def singup_view(request):
 
 def arun(request):
     return render(request, "arun_index.html")
+
+def layout(request):
+    return render(request, "layout.html")
