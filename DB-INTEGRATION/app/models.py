@@ -32,3 +32,9 @@ class parent(models.Model):
     ph_no = models.IntegerField()
     email = models.EmailField()
     owner = models.ForeignKey("student", on_delete=models.CASCADE)
+
+class arun_info(models.Model):
+    name = models.TextField()
+    roll_no = models.IntegerField()
+    reg_no = models.IntegerField()
+    program = models.TextField()
