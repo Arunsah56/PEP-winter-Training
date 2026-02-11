@@ -20,7 +20,7 @@ class student(models.Model):
     stu_name = models.TextField()
     enr_num = models.IntegerField()
     course = models.TextField()
-    sem = models.IntegerField()
+    sem = models.TextField()
     section = models.TextField()
 
 class parent(models.Model):

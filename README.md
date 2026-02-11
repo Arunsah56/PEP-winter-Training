@@ -29,3 +29,6 @@ git init
 
 django-admin startproject mysite folder_name
 python manage.py 
+
+
+
