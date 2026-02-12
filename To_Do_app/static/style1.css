@@ -1,5 +1,5 @@
 *{
-    margin:10%;
+    margin:0%;
     padding:0%
     
 }
@@ -7,4 +7,8 @@ body {
     height: 100vh;
     background: linear-gradient(135deg, #667eea, #764ba2);
     align-content: center;
+    margin-left: 20%;
+}
+.h1{
+    margin-bottom: 15px;
 }

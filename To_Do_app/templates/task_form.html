@@ -1,9 +1,41 @@
-<h2>Task Form</h2>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     {% comment %} <link rel="stylesheet" href="{% static 'style1.css'%}"> {% endcomment %}
+    <title>Task Form</title>
+</head>
+<body>
+   <h2>Task Form</h2>
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <input type="text" name="title"
+           value="{{ task.title|default:'' }}"
+           placeholder="Enter task">
+
+    <select name="category">
+        {% for cat in categories %}
+            <option value="{{ cat.id }}"
+                {% if task.category.id == cat.id %}selected{% endif %}>
+                {{ cat.name }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>
+        Completed:
+        <input type="checkbox" name="completed"
+               {% if task.completed %}checked{% endif %}>
+    </label>
+
     <button type="submit">Save</button>
 </form>
 
 <a href="/">Back</a>
+
+</body>
+</html>

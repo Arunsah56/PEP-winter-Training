@@ -1,36 +1,58 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-
-# Create your views here.
-# def home(request):
-#     return render(request, "home.html")
-
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task, Category
 
 
-class HomeView(ListView):
-    model = Category
-    template_name = "home.html"
-    context_object_name = "categories"
+def home(request):
+    categories = Category.objects.all()
+    return render(request, "home.html", {"categories": categories})
 
 
-class TaskCreateView(CreateView):
-    model = Task
-    fields = ['title', 'category']
-    template_name = "task_form.html"
-    success_url = reverse_lazy('home')
+def add_task(request):
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        category_id = request.POST.get("category")
+
+        category = Category.objects.get(id=category_id)
+        Task.objects.create(title=title, category=category)
+
+        return redirect("home")
+
+    return render(request, "task_form.html", {"categories": categories})
 
 
-class TaskUpdateView(UpdateView):
-    model = Task
-    fields = ['title', 'category', 'completed']
-    template_name = "task_form.html"
-    success_url = reverse_lazy('home')
+
+def update_task(request, pk):
+    task = get_object_or_404(Task, id=pk)
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        task.title = request.POST.get("title")
+        task.category_id = request.POST.get("category")
+        task.completed = "completed" in request.POST
+        task.save()
+
+        return redirect("home")
+
+    return render(request, "task_form.html", {
+        "task": task,
+        "categories": categories
+    })
 
 
-class TaskDeleteView(DeleteView):
-    model = Task
-    template_name = "confirm_delete.html"
-    success_url = reverse_lazy('home')
+
+def delete_task(request, pk):
+    task = get_object_or_404(Task, id=pk)
+
+    if request.method == "POST":
+        task.delete()
+        return redirect("home")
+
+    return render(request, "confirm_delete.html", {"task": task})
+
+def toggle_complete(request, pk):
+    task = get_object_or_404(Task, id=pk)
+    task.completed = not task.completed
+    task.save()
+    return redirect("home")

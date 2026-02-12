@@ -1,10 +1,11 @@
 
 from django.urls import path
-from .views import HomeView, TaskCreateView, TaskUpdateView, TaskDeleteView
+from . import views
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('add/', TaskCreateView.as_view(), name='add-task'),
-    path('update/<int:pk>/', TaskUpdateView.as_view(), name='update-task'),
-    path('delete/<int:pk>/', TaskDeleteView.as_view(), name='delete-task'),
+    path('', views.home, name='home'),
+    path('add/', views.add_task, name='add-task'),
+    path('update/<int:pk>/', views.update_task, name='update-task'),
+    path('delete/<int:pk>/', views.delete_task, name='delete-task'),
+    path('toggle/<int:pk>/', views.toggle_complete, name='toggle-task'),
 ]

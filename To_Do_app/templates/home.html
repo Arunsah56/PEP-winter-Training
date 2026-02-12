@@ -1,4 +1,14 @@
-<h1>To Do App</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="{% static 'style2.css'%}"> {% endcomment %}
+    <title>TO DO APP</title>
+</head>
+<body>
+    <h1>To Do App</h1>
 
 <a href="{% url 'add-task' %}">Add Task</a>
 
@@ -14,12 +24,15 @@
                     ✔ Done
                 {% endif %}
 
-                <a href="{% url 'update-task' task.id %}">Edit</a>
+                <a href="{% url 'toggle-task' task.id %}">Toggle</a>
+                {% comment %} <a href="{% url 'update-task' task.id %}">Edit</a> {% endcomment %}
                 <a href="{% url 'delete-task' task.id %}">Delete</a>
             </li>
         {% empty %}
             <li>No tasks</li>
         {% endfor %}
     </ul>
-
 {% endfor %}
+
+</body>
+</html>
