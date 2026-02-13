@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Course_detail, Post
-# Register your models here.
+from .models import Article
+# Register your models here. 
 
-class PostAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("title",)}  
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ("title", "body")
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Article, ArticleAdmin)
 
 

@@ -1,30 +1,41 @@
+# from django.db import models
+# from django.urls import reverse
+# from django.utils.text import slugify
+    
+# class Article(models.Model):
+#     title = models.CharField(max_length= 200)
+#     body = models.TextField()
+#     slug = models.SlugField(unique=True, blank=True, null=True)
+
+#     def save(self, *args, **kwargs):
+#         if not self.slug:
+#             self.slug = slugify(self.title)
+#         super().save(*args, **kwargs)
+    
+#     def __str__(self):
+#         return self.title
+    
+#     def get_absolute_url(self):
+#         # return reverse("article_detail", args=[str(self.id)])
+#         return reverse("article_detail", kwargs=[str(self.slug)])
+    
 from django.db import models
 from django.urls import reverse
-# Create your models here.
-class Course_detail(models.Model):
-    course_name = models.CharField(max_length=155)
-    course_code = models.CharField(max_length=155)
-    course_description = models.TextField()
+from django.utils.text import slugify
 
-    def __str__(self):
-        return self.course_name
-    
-    def get_absolute_url(self):
-        return reverse("model_detail", args=[str(self.id)])
-    
-class Post(models.Model):
-    title = models.CharField(max_length= 200)
-    content = models.TextField()
-    slug = models.SlugField(unique=True, blank=True)
-    
+
+class Article(models.Model):
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = self.title.replace(" ", "-").lower()
-        super().save(*args, **kwargs)   
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
-        return reverse("post_detail", args=[str(self.slug)])    
-    
+        return reverse("article_detail", kwargs={"slug": self.slug})

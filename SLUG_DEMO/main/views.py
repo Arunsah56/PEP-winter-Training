@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
-
+from .models import Article
+from django.views.generic import ListView, DetailView   
 # Create your views here.
-def index(request):
-    return render(request, "index.html")
 
-def post_detail(request, slug):
-    POST = get_object_or_404(Post, slug=slug)
-    return render(request, "post_detail.html", {"POST": POST})
-
-def home(request):
-    posts = Post.objects.all()
-    return render(request, "home.html", {"posts": posts})
     
+
+class ArticleListView(ListView):
+    model = Article
+    template_name = "article_list.html"
+    
+    
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = "article_detail.html"
